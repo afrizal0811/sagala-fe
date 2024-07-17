@@ -1,5 +1,10 @@
+import Layout from './Layout'
 function App() {
-  return <div className='App'>HAI</div>
+  return (
+    <div className='App'>
+      <Layout />
+    </div>
+  )
 }
 
 export default App
