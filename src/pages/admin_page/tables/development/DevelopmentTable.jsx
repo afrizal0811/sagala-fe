@@ -1,11 +1,11 @@
 import React from 'react'
-import Table from '../Table'
-import { ActionItems, developmentColumns } from './help'
+import Table from '../../Table'
+import { developmentColumns } from './help'
 const DevelopmentTable = (props) => {
   const { tableData, showModal } = props
   return (
     <Table
-      items={ActionItems(showModal)}
+      showModal={showModal}
       tableColumns={developmentColumns}
       tableData={tableData}
       title='Development Table'

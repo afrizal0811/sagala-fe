@@ -6,15 +6,16 @@ import {
   StyledTable,
   TableWrapper,
 } from './StyledComponents'
+import { ActionItems } from './help'
 const Table = (props) => {
-  const { title, tableColumns, tableData, items, isCheck } = props
+  const { title, tableColumns, tableData, showModal, isCheck } = props
   return (
     <TableWrapper>
       <StyledHeader>
         <h3>{title}</h3>
         <Dropdown
           icon={<StyledMoreIcon rotate={90} />}
-          items={items}
+          items={ActionItems(showModal)}
           placement='bottomRight'
           trigger='click'
         />
