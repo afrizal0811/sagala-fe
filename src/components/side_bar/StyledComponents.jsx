@@ -2,10 +2,14 @@ import styled from 'styled-components'
 import colors from '../../constants/colors'
 
 export const Wrapper = styled.div`
+  display: block;
   background-color: white;
   height: 100dvh;
-  width: 30%;
+  width: 25%;
   padding: 20px;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
 `
 export const TitleWrapper = styled.div`
   display: flex;
