@@ -46,26 +46,6 @@ const AdminPage = () => {
           />
         )
       })}
-      {/* <DevelopmentTable
-        setTableTitle={setTableTitle}
-        showModal={showModal}
-        tableData={data}
-      />
-      <CheckTable
-        setTableTitle={setTableTitle}
-        showModal={showModal}
-        tableData={data}
-      />
-      <FourColumnTable
-        setTableTitle={setTableTitle}
-        showModal={showModal}
-        tableData={data}
-      />
-      <ComplexTable
-        setTableTitle={setTableTitle}
-        showModal={showModal}
-        tableData={data}
-      /> */}
     </Wrapper>
   )
 }
