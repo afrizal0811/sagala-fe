@@ -11,7 +11,7 @@ const progressSorter = (a, b) => {
   return newA - newB
 }
 
-export const fourColumns = [
+export const checkColumns = [
   {
     title: 'Name',
     dataIndex: 'name',

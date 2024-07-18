@@ -1,24 +1,16 @@
 import React from 'react'
 
 import Table from '../../Table'
-import { fourColumns } from './help'
+import { checkColumns } from './help'
 const CheckTable = (props) => {
-  const { tableData, showModal } = props
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      progress: '100%',
-      quantity: 100,
-      date: '11 June 2019',
-    },
-  ]
+  const { tableData, showModal, setTableTitle } = props
   return (
     <Table
       isCheck={true}
+      setTableTitle={setTableTitle}
       showModal={showModal}
-      tableColumns={fourColumns}
-      tableData={data}
+      tableColumns={checkColumns}
+      tableData={tableData}
       title='Check Table'
     />
   )
