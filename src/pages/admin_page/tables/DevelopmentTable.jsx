@@ -1,16 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Table from '../Table'
 import { ActionItems, developmentColumns } from './help'
 const DevelopmentTable = (props) => {
-  const { showModal } = props
-  const [data, setData] = useState([])
+  const { tableData, showModal } = props
   return (
     <Table
-      items={ActionItems(setData, showModal)}
+      items={ActionItems(showModal)}
       tableColumns={developmentColumns}
-      tableData={data}
+      tableData={tableData}
       title='Development Table'
-      setData={setData}
     />
   )
 }

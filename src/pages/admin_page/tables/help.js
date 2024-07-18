@@ -1,29 +1,16 @@
 import moment from 'moment'
 import { Progress } from '../../../components/antd'
-export const ActionItems = (setData, showModal) => {
-  const handleAdd = () => {
-    showModal()
-    // setData((prev) => [
-    //   ...prev,
-    //   {
-    //     key: '1',
-    //     name: 'John Brown',
-    //     progress: '100%',
-    //     quantity: 100,
-    //     date: '11 June 2019',
-    //   },
-    // ])
-  }
-
+import { PlusCircleOutlined } from '@ant-design/icons'
+export const ActionItems = (showModal) => {
   return [
     {
       key: '1',
       label: (
         <a
-          href={false}
-          onClick={handleAdd}
+          href='/#'
+          onClick={showModal}
         >
-          Add New Item
+          <PlusCircleOutlined /> Add
         </a>
       ),
     },
@@ -34,9 +21,10 @@ const removePercentage = (data) => {
   const newData = Number(data.replace('%', ''))
   return newData
 }
+
 const progressSorter = (a, b) => {
-  const newA = Number(a.progress.replace('%', ''))
-  const newB = Number(b.progress.replace('%', ''))
+  const newA = removePercentage(a.progress)
+  const newB = removePercentage(b.progress)
   return newA - newB
 }
 
@@ -90,13 +78,23 @@ export const developmentColumns = [
     dataIndex: 'tech',
     key: 'tech',
     width: '20%',
+    render: (data) => (
+      <div
+        style={{
+          display: 'flex',
+          gap: 5,
+        }}
+      >
+        {data}
+      </div>
+    ),
   },
   {
     title: 'Date',
     dataIndex: 'date',
     key: 'date',
     sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
-    width: '20%',
+    width: '22%',
   },
   {
     title: 'Progress',

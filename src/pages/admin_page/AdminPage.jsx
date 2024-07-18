@@ -8,26 +8,34 @@ import DevelopmentTable from './tables/DevelopmentTable'
 import FourColumnTable from './tables/FourColumnTable'
 const AdminPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [data, setData] = useState([])
+
   const showModal = () => {
     setIsModalOpen(true)
-  }
-  const handleOk = () => {
-    setIsModalOpen(false)
   }
   const handleCancel = () => {
     setIsModalOpen(false)
   }
+  
   return (
     <Wrapper>
       <Modal
-        content={<ModalForm />}
+        content={
+          <ModalForm
+            handleCancel={handleCancel}
+            setData={setData}
+          />
+        }
         handleCancel={handleCancel}
-        handleOk={handleOk}
         isModalOpen={isModalOpen}
         title='Input Data'
         width={400}
+        footer={null}
       />
-      <DevelopmentTable showModal={showModal} />
+      <DevelopmentTable
+        showModal={showModal}
+        tableData={data}
+      />
       <CheckTable showModal={showModal} />
       <FourColumnTable showModal={showModal} />
       <ComplexTable showModal={showModal} />
