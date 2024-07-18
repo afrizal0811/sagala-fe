@@ -1,5 +1,5 @@
 import moment from 'moment'
-
+import { Progress } from '../../../components/antd'
 export const ActionItems = [
   {
     key: '1',
@@ -16,18 +16,23 @@ export const ActionItems = [
   },
 ]
 
+const removePercentage = (data) => {
+  const newData = Number(data.replace('%', ''))
+  return newData
+}
 const progressSorter = (a, b) => {
   const newA = Number(a.progress.replace('%', ''))
   const newB = Number(b.progress.replace('%', ''))
   return newA - newB
 }
+
 export const complexColumns = [
   {
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
     sorter: (a, b) => a.name.localeCompare(b.name),
-    // ellipsis: true,
+    ellipsis: true,
   },
   {
     title: 'Status',
@@ -48,6 +53,7 @@ export const complexColumns = [
     dataIndex: 'progress',
     key: 'progress',
     sorter: (a, b) => progressSorter(a, b),
+    render: (data) => <Progress percent={removePercentage(data)} showInfo={false}/>,
     // ellipsis: true,
   },
 ]
@@ -58,27 +64,35 @@ export const developmentColumns = [
     dataIndex: 'name',
     key: 'name',
     sorter: (a, b) => a.name.localeCompare(b.name),
-    // ellipsis: true,
+    ellipsis: true,
   },
   {
     title: 'Tech',
     dataIndex: 'tech',
     key: 'tech',
-    // ellipsis: true,
+    width: '20%',
   },
   {
     title: 'Date',
     dataIndex: 'date',
     key: 'date',
     sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
-    // ellipsis: true,
+    width: '20%',
   },
   {
     title: 'Progress',
     dataIndex: 'progress',
     key: 'progress',
     sorter: (a, b) => progressSorter(a, b),
-    // ellipsis: true,
+    render: (data) => (
+      <Progress
+        percent={removePercentage(data)}
+        percentPosition={{
+          align: 'start',
+          type: 'outer',
+        }}
+      />
+    ),
   },
 ]
 
@@ -88,27 +102,24 @@ export const fourColumns = [
     dataIndex: 'name',
     key: 'name',
     sorter: (a, b) => a.name.localeCompare(b.name),
-    // ellipsis: true,
+    ellipsis: true,
   },
   {
     title: 'Progress',
     dataIndex: 'progress',
     key: 'progress',
     sorter: (a, b) => progressSorter(a, b),
-    // ellipsis: true,
   },
   {
     title: 'Quantity',
     dataIndex: 'quantity',
     key: 'quantity',
     sorter: (a, b) => a.quantity - b.quantity,
-    // ellipsis: true,
   },
   {
     title: 'Date',
     dataIndex: 'date',
     key: 'date',
     sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
-    // ellipsis: true,
   },
 ]

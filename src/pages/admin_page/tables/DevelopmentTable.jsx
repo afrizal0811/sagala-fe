@@ -10,27 +10,27 @@ const DevelopmentTable = () => {
       quantity: 100,
       date: '11 June 2019',
     },
-    // {
-    //   key: '2',
-    //   name: 'Afrizal Maulana Muhammad',
-    //   progress: '40%',
-    //   quantity: 1002,
-    //   date: '17 July 1997',
-    // },
-    // {
-    //   key: '3',
-    //   name: 'Budi Setiawan',
-    //   progress: '90%',
-    //   quantity: 674,
-    //   date: '20 March 2022',
-    // },
-    // {
-    //   key: '4',
-    //   name: 'Budi Setiawan',
-    //   progress: '67%',
-    //   quantity: 21,
-    //   date: '05 January 2006',
-    // },
+    {
+      key: '2',
+      name: 'Afrizal Maulana Muhammad',
+      progress: '40%',
+      quantity: 1002,
+      date: '17 July 1997',
+    },
+    {
+      key: '3',
+      name: 'Budi Setiawan',
+      progress: '90%',
+      quantity: 674,
+      date: '20 March 2022',
+    },
+    {
+      key: '4',
+      name: 'Budi Setiawan',
+      progress: '67%',
+      quantity: 21,
+      date: '05 January 2006',
+    },
   ]
 
   return (
