@@ -38,7 +38,8 @@ const CheckTable = () => {
       items={ActionItems}
       tableColumns={fourColumns}
       tableData={data}
-      title='Complex Table'
+      title='Check Table'
+      isCheck={true}
     />
   )
 }

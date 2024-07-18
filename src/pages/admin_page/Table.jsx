@@ -7,7 +7,7 @@ import {
   TableWrapper,
 } from './StyledComponents'
 const Table = (props) => {
-  const { title, tableColumns, tableData, items } = props
+  const { title, tableColumns, tableData, items, isCheck } = props
   return (
     <TableWrapper>
       <StyledHeader>
@@ -20,6 +20,7 @@ const Table = (props) => {
         />
       </StyledHeader>
       <StyledTable
+        isCheck={isCheck}
         columns={tableColumns}
         data={tableData}
         pagination={false}
