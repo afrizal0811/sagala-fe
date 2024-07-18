@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { Modal } from '../../components/antd'
 import { Wrapper } from './StyledComponents'
-import { modalContent } from './help'
+import { modalContent, tableName } from './help'
 import ModalForm from './modal/ModalForm'
-import CheckTable from './tables/check/CheckTable'
-import ComplexTable from './tables/complex/ComplexTable'
-import DevelopmentTable from './tables/development/DevelopmentTable'
-import FourColumnTable from './tables/four_column/FourColumnTable'
+import Table from './table/Table'
+import { columns } from './table/tableConfig'
 
 const AdminPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -35,7 +33,20 @@ const AdminPage = () => {
         width={400}
         footer={null}
       />
-      <DevelopmentTable
+      {tableName.map((title) => {
+        const selectedColumns = columns.filter((el) => el.name === title)[0]
+        return (
+          <Table
+            isCheck={true}
+            setTableTitle={setTableTitle}
+            showModal={showModal}
+            tableColumns={selectedColumns.data}
+            tableData={data}
+            title={title}
+          />
+        )
+      })}
+      {/* <DevelopmentTable
         setTableTitle={setTableTitle}
         showModal={showModal}
         tableData={data}
@@ -54,7 +65,7 @@ const AdminPage = () => {
         setTableTitle={setTableTitle}
         showModal={showModal}
         tableData={data}
-      />
+      /> */}
     </Wrapper>
   )
 }

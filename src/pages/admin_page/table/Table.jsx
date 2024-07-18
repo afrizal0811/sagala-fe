@@ -1,12 +1,12 @@
 import React from 'react'
-import { Dropdown } from '../../components/antd'
+import { Dropdown } from '../../../components/antd'
 import {
   StyledHeader,
   StyledMoreIcon,
   StyledTable,
   TableWrapper,
-} from './StyledComponents'
-import { ActionItems } from './help'
+} from '../StyledComponents'
+import { ActionItems } from '../help'
 const Table = (props) => {
   const { isCheck, setTableTitle, showModal, tableColumns, tableData, title } =
     props

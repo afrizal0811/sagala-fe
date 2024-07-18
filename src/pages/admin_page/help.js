@@ -10,26 +10,6 @@ import {
 import { Flex } from 'antd'
 import { Checkbox, DatePicker, Input, Radio } from '../../components/antd'
 
-export const ActionItems = (showModal, setTableTitle, title) => {
-  const handleClick = () => {
-    setTableTitle(title)
-    showModal()
-  }
-  return [
-    {
-      key: '1',
-      label: (
-        <a
-          href='/#'
-          onClick={handleClick}
-        >
-          <PlusCircleOutlined /> Add
-        </a>
-      ),
-    },
-  ]
-}
-
 const techOptions = [
   {
     label: <AppleFilled />,
@@ -74,6 +54,33 @@ const statusOptions = [
     ),
   },
 ]
+
+export const tableName = [
+  'Development Table',
+  'Check Table',
+  'Four Column Table',
+  'Complex Table',
+]
+
+export const ActionItems = (showModal, setTableTitle, title) => {
+  const handleClick = () => {
+    setTableTitle(title)
+    showModal()
+  }
+  return [
+    {
+      key: '1',
+      label: (
+        <a
+          href='/#'
+          onClick={handleClick}
+        >
+          <PlusCircleOutlined /> Add
+        </a>
+      ),
+    },
+  ]
+}
 
 export const modalContent = [
   {
