@@ -1,20 +1,34 @@
 import moment from 'moment'
 import { Progress } from '../../../components/antd'
-export const ActionItems = [
-  {
-    key: '1',
-    label: (
-      <a
-        href={false}
-        onClick={() => {
-          alert('1st menu item clicked')
-        }}
-      >
-        Add New Item
-      </a>
-    ),
-  },
-]
+export const ActionItems = (setData, showModal) => {
+  const handleAdd = () => {
+    showModal()
+    // setData((prev) => [
+    //   ...prev,
+    //   {
+    //     key: '1',
+    //     name: 'John Brown',
+    //     progress: '100%',
+    //     quantity: 100,
+    //     date: '11 June 2019',
+    //   },
+    // ])
+  }
+
+  return [
+    {
+      key: '1',
+      label: (
+        <a
+          href={false}
+          onClick={handleAdd}
+        >
+          Add New Item
+        </a>
+      ),
+    },
+  ]
+}
 
 const removePercentage = (data) => {
   const newData = Number(data.replace('%', ''))
@@ -53,7 +67,12 @@ export const complexColumns = [
     dataIndex: 'progress',
     key: 'progress',
     sorter: (a, b) => progressSorter(a, b),
-    render: (data) => <Progress percent={removePercentage(data)} showInfo={false}/>,
+    render: (data) => (
+      <Progress
+        percent={removePercentage(data)}
+        showInfo={false}
+      />
+    ),
     // ellipsis: true,
   },
 ]
