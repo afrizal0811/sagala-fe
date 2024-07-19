@@ -5,19 +5,31 @@ import getFormatDate from '../../../utilities/getFormatDate'
 import getRandomProgress from '../../../utilities/getRandomProgress'
 
 const ModalForm = (props) => {
-  const { handleCancel, setData, content } = props
+  const { handleCancel, setData, content, tableTitle, data } = props
   const [form] = Form.useForm()
-  const onFinish = (values) => {
-    const newDate = new Date(values.date)
-    Object.assign(values, {
-      progress: getRandomProgress(),
-      date: getFormatDate(newDate),
-    })
-    setData((prev) => [...prev, values])
+
+  const handleCancelClick = () => {
     handleCancel()
     setTimeout(() => {
       form.resetFields()
     }, 500)
+  }
+
+  const onFinish = (values) => {
+    const newDate = new Date(values.date)
+    const newData = [...data]
+    const indexData = newData.map((item) => item.name).indexOf(tableTitle)
+    newData[indexData] = {
+      ...newData[indexData],
+      input: [...newData[indexData].input, values],
+    }
+    Object.assign(values, {
+      key: newData[indexData].input.length,
+      progress: getRandomProgress(),
+      date: getFormatDate(newDate),
+    })
+    setData(newData)
+    handleCancelClick()
   }
 
   return (
@@ -28,8 +40,9 @@ const ModalForm = (props) => {
       name='add-form'
       onFinish={onFinish}
     >
-      {content['data'].map((item) => (
+      {content['data'].map((item, key) => (
         <Form.Item
+          key={key}
           label={item.label}
           name={item.name}
           rules={[
@@ -46,7 +59,7 @@ const ModalForm = (props) => {
         justify='flex-end'
         gap={10}
       >
-        <Button onClick={handleCancel}>Cancel</Button>
+        <Button onClick={handleCancelClick}>Cancel</Button>
         <Button
           type='primary'
           htmlType='submit'

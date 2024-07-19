@@ -55,6 +55,10 @@ const statusOptions = [
   },
 ]
 
+export const dataFilter = (data, title) => {
+  const filtered = data.filter((el) => el.name === title)[0]
+  return filtered ? filtered : 'No Data'
+}
 export const tableName = [
   'Development Table',
   'Check Table',
