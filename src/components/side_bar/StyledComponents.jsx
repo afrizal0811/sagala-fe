@@ -3,14 +3,13 @@ import colors from '../../constants/colors'
 
 export const Wrapper = styled.div`
   background-color: white;
-  ${(props) => (!props.$isCollapsed && 'display: block')}
+  ${(props) => !props.$isCollapsed && 'display: block'}
   height: 100dvh;
-  left: 0;
-  overflow-x: hidden;
   padding: 20px;
   position: fixed;
-  top: 0;
   width: 25%;
+  top: 0px;
+  bottom: 0px;
   z-index: 1000;
   @media screen and (max-width: 1200px) {
     display: ${(props) => (props.$isCollapsed ? 'block' : 'none')};
