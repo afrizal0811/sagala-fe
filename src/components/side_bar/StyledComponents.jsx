@@ -2,13 +2,18 @@ import styled from 'styled-components'
 import colors from '../../constants/colors'
 
 export const Wrapper = styled.div`
-  display: block;
   background-color: white;
+  ${(props) => (!props.$isCollapsed && 'display: block')}
   height: 100dvh;
-  width: 25%;
+  left: 0;
+  overflow-x: hidden;
   padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 25%;
+  z-index: 1000;
   @media screen and (max-width: 1200px) {
-    display: none;
+    display: ${(props) => (props.$isCollapsed ? 'block' : 'none')};
   }
 `
 export const TitleWrapper = styled.div`

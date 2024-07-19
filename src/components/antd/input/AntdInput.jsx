@@ -1,12 +1,14 @@
 import { Input } from 'antd'
 import React from 'react'
 const AntdInput = (props) => {
-  const { placeholder, value, onChange } = props
+  const { placeholder, value, onChange, prefix, className } = props
   return (
     <Input
-      placeholder={placeholder}
-      value={value}
+      className={className}
       onChange={onChange}
+      placeholder={placeholder}
+      prefix={prefix}
+      value={value}
     />
   )
 }

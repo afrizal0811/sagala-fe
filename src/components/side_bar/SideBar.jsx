@@ -9,9 +9,10 @@ import {
 } from './StyledComponents'
 import { items } from './help'
 
-const SideBar = () => {
+const SideBar = (props) => {
+  const { isCollapsed } = props
   return (
-    <Wrapper>
+    <Wrapper $isCollapsed={isCollapsed}>
       <TitleWrapper>
         <StyledTitle>
           HORIZON <span>FREE</span>

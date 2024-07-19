@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   gap: 20px;
   height: 100dvh;
   justify-content: center;
-  overflow-y: scroll;
+  margin-top: 80px;
   padding: 10px;
   width: 100%;
 `
@@ -22,7 +22,6 @@ export const TableWrapper = styled.div`
   gap: 15px;
   padding: 15px;
   width: 48%;
-  overflow-x: scroll;
   @media screen and (max-width: 800px) {
     width: 100%;
   }
