@@ -1,5 +1,5 @@
 import moment from 'moment'
-import { Progress } from '../../../components/antd'
+import { Button, Progress } from '../../../components/antd'
 
 const removePercentage = (data) => {
   const newData = Number(data.replace('%', ''))
@@ -12,7 +12,7 @@ const progressSorter = (a, b) => {
   return newA - newB
 }
 
-export const columns = [
+export const columns = (handleDelete) => [
   {
     name: 'Complex Table',
     data: [
@@ -20,6 +20,7 @@ export const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        width: 100,
         sorter: (a, b) => a.name.localeCompare(b.name),
         ellipsis: true,
       },
@@ -27,24 +28,42 @@ export const columns = [
         title: 'Status',
         dataIndex: 'status',
         key: 'status',
+        width: 100,
         sorter: (a, b) => a.name.localeCompare(b.name),
       },
       {
         title: 'Date',
         dataIndex: 'date',
         key: 'date',
+        width: 100,
         sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
       },
       {
         title: 'Progress',
         dataIndex: 'progress',
         key: 'progress',
+        width: 100,
         sorter: (a, b) => progressSorter(a, b),
         render: (data) => (
           <Progress
             percent={removePercentage(data)}
             showInfo={false}
           />
+        ),
+      },
+      {
+        title: 'Action',
+        dataIndex: 'action',
+        key: 'action',
+        width: 100,
+        render: (item, record, index) => (
+          <Button
+            danger={true}
+            type='primary'
+            onClick={() => handleDelete(index + 1)}
+          >
+            Delete
+          </Button>
         ),
       },
     ],
@@ -56,6 +75,7 @@ export const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        width: 100,
         sorter: (a, b) => a.name.localeCompare(b.name),
         ellipsis: true,
       },
@@ -63,12 +83,14 @@ export const columns = [
         title: 'Progress',
         dataIndex: 'progress',
         key: 'progress',
+        width: 100,
         sorter: (a, b) => progressSorter(a, b),
       },
       {
         title: 'Quantity',
         dataIndex: 'quantity',
         key: 'quantity',
+        width: 100,
         sorter: (a, b) => a.quantity - b.quantity,
       },
       {
@@ -76,6 +98,21 @@ export const columns = [
         dataIndex: 'date',
         key: 'date',
         sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
+      },
+      {
+        title: 'Action',
+        dataIndex: 'action',
+        key: 'action',
+        width: 100,
+        render: (item, record, index) => (
+          <Button
+            danger={true}
+            type='primary'
+            onClick={() => handleDelete(index + 1)}
+          >
+            Delete
+          </Button>
+        ),
       },
     ],
   },
@@ -86,6 +123,7 @@ export const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        width: 100,
         sorter: (a, b) => a.name.localeCompare(b.name),
         ellipsis: true,
       },
@@ -93,7 +131,7 @@ export const columns = [
         title: 'Tech',
         dataIndex: 'tech',
         key: 'tech',
-        width: '20%',
+        width: 100,
         render: (data) => (
           <div
             style={{
@@ -110,12 +148,13 @@ export const columns = [
         dataIndex: 'date',
         key: 'date',
         sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
-        width: '22%',
+        width: 100,
       },
       {
         title: 'Progress',
         dataIndex: 'progress',
         key: 'progress',
+        width: 100,
         sorter: (a, b) => progressSorter(a, b),
         render: (data) => (
           <Progress
@@ -127,6 +166,21 @@ export const columns = [
           />
         ),
       },
+      {
+        title: 'Action',
+        dataIndex: 'action',
+        key: 'action',
+        width: 100,
+        render: (item, record, index) => (
+          <Button
+            danger={true}
+            type='primary'
+            onClick={() => handleDelete(index + 1)}
+          >
+            Delete
+          </Button>
+        ),
+      },
     ],
   },
   {
@@ -136,6 +190,7 @@ export const columns = [
         title: 'Name',
         dataIndex: 'name',
         key: 'name',
+        width: 100,
         sorter: (a, b) => a.name.localeCompare(b.name),
         ellipsis: true,
       },
@@ -149,13 +204,30 @@ export const columns = [
         title: 'Quantity',
         dataIndex: 'quantity',
         key: 'quantity',
+        width: 100,
         sorter: (a, b) => a.quantity - b.quantity,
       },
       {
         title: 'Date',
         dataIndex: 'date',
         key: 'date',
+        width: 100,
         sorter: (a, b) => moment(a.date).unix() - moment(b.date).unix(),
+      },
+      {
+        title: 'Action',
+        dataIndex: 'action',
+        key: 'action',
+        width: 100,
+        render: (item, record, index) => (
+          <Button
+            danger={true}
+            type='primary'
+            onClick={() => handleDelete(index + 1)}
+          >
+            Delete
+          </Button>
+        ),
       },
     ],
   },

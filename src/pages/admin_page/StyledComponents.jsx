@@ -36,6 +36,8 @@ export const StyledHeader = styled.div`
   }
 `
 export const StyledTable = styled(Table)`
+  height: 100%;
+  overflow-x: scroll;
   width: 100%;
 `
 export const StyledMoreIcon = styled(MoreOutlined)`

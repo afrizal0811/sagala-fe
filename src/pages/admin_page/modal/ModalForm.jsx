@@ -2,11 +2,14 @@ import { Flex, Form } from 'antd'
 import React from 'react'
 import { Button } from '../../../components/antd'
 import getFormatDate from '../../../utilities/getFormatDate'
+import getIndex from '../../../utilities/getIndex'
 import getRandomProgress from '../../../utilities/getRandomProgress'
 
 const ModalForm = (props) => {
   const { handleCancel, setData, content, tableTitle, data } = props
   const [form] = Form.useForm()
+  const newData = [...data]
+  const index = getIndex(data, tableTitle)
 
   const handleCancelClick = () => {
     handleCancel()
@@ -17,14 +20,13 @@ const ModalForm = (props) => {
 
   const onFinish = (values) => {
     const newDate = new Date(values.date)
-    const newData = [...data]
-    const indexData = newData.map((item) => item.name).indexOf(tableTitle)
-    newData[indexData] = {
-      ...newData[indexData],
-      input: [...newData[indexData].input, values],
+    newData[index] = {
+      ...newData[index],
+      input: [...newData[index].input, values],
     }
+
     Object.assign(values, {
-      key: newData[indexData].input.length,
+      key: newData[index].input.length,
       progress: getRandomProgress(),
       date: getFormatDate(newDate),
     })
